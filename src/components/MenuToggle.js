@@ -1,7 +1,8 @@
-/* eslint-disable react/jsx-no-undef */
-import React from "react"
-import { Box, Menu } from "@chakra-ui/react"
+import React from 'react';
+import { Box } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+
+import { CloseIcon, MenuIcon } from '../components/Header';
 
 const MenuToggle = ({ toggle, isOpen }) => {
   return (
