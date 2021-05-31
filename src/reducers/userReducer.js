@@ -5,7 +5,7 @@ import {
 } from '../actions/action';
 
 const INITIAL_STATE = {
-  user: [],
+  users: [],
   loading: false,
   error: null,
 };
@@ -22,7 +22,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        user: action.payload,
+        users: action.payload,
       };
     case FETCH_USERS_FAILURE:
       return {

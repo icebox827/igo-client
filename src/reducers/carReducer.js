@@ -5,7 +5,7 @@ import {
 } from '../actions/action';
 
 const INITIAL_STATE = {
-  car: [],
+  cars: [],
   loading: false,
   error: null,
 };
@@ -22,7 +22,7 @@ const carReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        car: action.payload,
+        cars: action.payload,
       };
     case FETCH_CARS_FAILURE:
       return {
