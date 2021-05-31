@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Box, Flex, Text, Button, Stack } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import PropTypes from 'prop-types';
 
 const NavBarContainer = ({ children, ...props }) => {

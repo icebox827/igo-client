@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Box, Flex, Text, Button, Stack } from '@chakra-ui/react';
+import { Box, Button, Stack } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
 import MenuItem from '../components/MenuItem';
@@ -18,9 +18,9 @@ const MenuLinks = ({ isOpen }) => {
         pt={[4, 4, 0, 0]}
       >
         <MenuItem to='/'>Home</MenuItem>
-        <MenuItem to='/how'>How It works </MenuItem>
-        <MenuItem to='/faetures'>Features </MenuItem>
-        <MenuItem to='/pricing'>Pricing </MenuItem>
+        <MenuItem to='/cars'>Cars </MenuItem>
+        <MenuItem to='/reservation'>Reservation </MenuItem>
+        <MenuItem to='/signin'>Signin </MenuItem>
         <MenuItem to='/signup' isLast>
           <Button
             size='sm'
@@ -31,7 +31,7 @@ const MenuLinks = ({ isOpen }) => {
               bg: ['primary.100', 'primary.100', 'primary.600', 'primary.600']
             }}
           >
-            Create Account
+            Signup
           </Button>
         </MenuItem>
       </Stack>
