@@ -40,7 +40,7 @@ const MenuLinks = ({ isOpen }) => {
 };
 
 MenuLinks.propTypes = {
-  isOpen: PropTypes.func,
+  isOpen: PropTypes.bool,
 };
 
 export default MenuLinks;

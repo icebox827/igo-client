@@ -1,10 +1,10 @@
-import { combineReducer } from 'redux';
+import { combineReducers } from 'redux';
 import userReducer from './userReducer';
 import carReducer from './carReducer';
 import bookedCarReducer from './bookedCarReducer';
 import CarItemReducer from './carItemReducer';
 
-const allReducers = combineReducer({
+const allReducers = combineReducers({
   users: userReducer,
   cars: carReducer,
   carItem: CarItemReducer,

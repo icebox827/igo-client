@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-import Logo from './Logo';
+import Logo from '../components/Logo';
 import MenuToggle from '../components/MenuToggle';
 import MenuLinks from '../components/MenuLinks';
 import NavBarContainer from '../components/NavBarContainer';
