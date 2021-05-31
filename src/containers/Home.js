@@ -10,7 +10,9 @@ const Home = () => {
     <Jumbotron>
       <Container>
         <img src={car} alt="logo" className="rentcar" />
-          <h2>The right place to book your favorite car</h2>
+        <Text fontSize="4xl" color="blue.500" mt="4" textAlign="center">
+          The right place to book your favorite car
+        </Text>  
       </Container>
     </Jumbotron>
   )
