@@ -17,6 +17,10 @@ body {
   height: 50px;
 }
 
-.rentacar {
+.jumbotron {
+  height: 60vh;
+}
+
+.container .rentacar {
   width: 100%;
 }

@@ -4,7 +4,7 @@ import Logo from '../assets/Logo.png';
 
 const NavBar = () => {
   return (
-    <Flex>
+    <Flex bg="blue.500">
       <Menu>
         <Box p="2">
           <Heading size="md">
@@ -12,7 +12,7 @@ const NavBar = () => {
           </Heading>
         </Box>
         <Box>
-          <MenuItem color="white" className="link" bg="blue">
+          <MenuItem color="white" className="link">
              <Link to="/">
                <Text display="block">
                   Home
@@ -21,7 +21,7 @@ const NavBar = () => {
           </MenuItem>
         </Box>
         <Box>
-          <MenuItem color="white" className="link" bg="blue">
+          <MenuItem color="white" className="link">
             <Link to="/car">
                 <Text display="block">
                   Car
@@ -30,7 +30,7 @@ const NavBar = () => {
           </MenuItem>
         </Box>
         <Box>
-          <MenuItem color="white" className="link" bg="blue">
+          <MenuItem color="white" className="link">
            <Link to="/reservation">
              <Text display="block">
                 Reservation
