@@ -13,7 +13,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 };
 
 MenuItem.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.object,
   isLast: PropTypes.bool,
   to: PropTypes.string,
 };

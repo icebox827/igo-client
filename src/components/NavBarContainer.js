@@ -22,7 +22,7 @@ const NavBarContainer = ({ children, ...props }) => {
 };
 
 NavBarContainer.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.array,
 }
 
 export default NavBarContainer;
