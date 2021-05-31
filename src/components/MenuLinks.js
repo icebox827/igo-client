@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Box, Button, Stack } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
@@ -39,8 +40,8 @@ const MenuLinks = ({ isOpen }) => {
   )
 };
 
-MenuLinks.propTypes = {
-  isOpen: PropTypes.bool,
-};
+// MenuLinks.propTypes = {
+//   isOpen: PropTypes.bool,
+// };
 
 export default MenuLinks;

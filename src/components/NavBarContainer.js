@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import PropTypes from 'prop-types';
@@ -21,8 +22,8 @@ const NavBarContainer = ({ children, ...props }) => {
   )
 };
 
-NavBarContainer.propTypes = {
-  children: PropTypes.array,
-}
+// NavBarContainer.propTypes = {
+//   children: PropTypes.array,
+// }
 
 export default NavBarContainer;

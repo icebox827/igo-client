@@ -14,9 +14,9 @@ const Routes = () => {
       <Router>
         <NavBar />
         <Switch>
-          <Route exact path='/' component={Home} />
+          {/* <Route exact path='/' component={Home} />
           <Route exact path='/reservation' component={Reservation} />
-          <Route exact path='car' component={Cars}  />
+          <Route exact path='car' component={Cars}  /> */}
         </Switch>
       </Router>
     </Provider>

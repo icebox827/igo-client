@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
@@ -12,9 +13,9 @@ const MenuToggle = ({ toggle, isOpen }) => {
   )
 };
 
-MenuToggle.propTypes = {
-  toggle: PropTypes.func,
-  isOpen: PropTypes.bool,
-}
+// MenuToggle.propTypes = {
+//   toggle: PropTypes.func,
+//   isOpen: PropTypes.bool,
+// }
 
 export default MenuToggle;
