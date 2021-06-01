@@ -1,4 +1,4 @@
-import { Box, Grid, Menu, MenuItem, Text, Flex, Spacer, Heading, Button } from '@chakra-ui/react';
+import { Box, Menu, MenuItem, Text, Flex, Spacer, Heading, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.png';
 
@@ -49,61 +49,6 @@ const NavBar = () => {
         </Box>
       </Menu>
     </Flex>
-    // <Menu className="navbar">
-    //   <Grid templateColumns="repeat(5, 1fr)">
-    //     <Box>
-    //       <MenuItem color="white" className="link" bg="blue">
-    //         <Link to="/">
-    //           <Text display="block">
-    //             Home
-    //           </Text>
-    //         </Link>
-    //       </MenuItem>
-    //     </Box>
-    //     <Box>
-    //     <MenuItem color="white" className="link" bg="blue">
-    //       <Link to="/car">
-    //         <Text display="block">
-    //           Car
-    //         </Text>
-    //       </Link>
-    //     </MenuItem>
-    //     </Box>
-    //     <Box>
-    //       <MenuItem color="white" className="link" bg="blue">
-    //         <Link to="/reservation">
-    //           <Text display="block">
-    //             Reservation
-    //           </Text>
-    //         </Link>
-    //       </MenuItem>
-    //     </Box>
-    //     <Box>
-    //       <MenuItem color="white" className="link" bg="blue">
-    //         <Link to="/reservation">
-    //           <Text display="block">
-    //             Signin
-    //           </Text>
-    //         </Link>
-
-    //         <Link to="/reservation">
-    //           <Text display="block">
-    //             Signup
-    //           </Text>
-    //         </Link>
-    //       </MenuItem>
-    //     </Box>
-    //     <Box>
-    //       <MenuItem color="white" className="link" bg="blue">
-    //         <Link to="/reservation">
-    //           <Text display="block">
-    //             Signup
-    //           </Text>
-    //         </Link>
-    //       </MenuItem>
-    //     </Box>
-    //   </Grid>
-    // </Menu>
   )
 };
 
