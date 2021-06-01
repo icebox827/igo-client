@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import {
   FormControl,
@@ -15,9 +14,7 @@ const Login = () => {
     let error
     if (!value) {
       error = "username and password are required"
-    } else if (value.toLowerCase() !== "naruto") {
-      error = "Jeez! You're not a fan 😱"
-    }
+    } 
     return error
   }
   return (
