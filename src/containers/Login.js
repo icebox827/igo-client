@@ -4,11 +4,12 @@ import { useHistory } from 'react-router';
 import { signin } from '../actions/index';
 import { Button, FormGroup, FormControl, FormLabel, Form } from 'react-bootstrap';
 import { Text } from '@chakra-ui/react';
+import '../styles/App.css';
 
 
 const Login = () => {
   const history = useHistory();
-  
+
   const [credits, setCredits] = useState({
      username: '',
      password: ''
@@ -37,10 +38,10 @@ const Login = () => {
     e.preventDefault();
     setFailure('');
     handleClick();
-    const respond = await signin(credits);
-    if (respond && respond.failure) return setFailure(respond.failure);
+    const response = await signin(credits);
+    if (response && response.failure) return setFailure(response.failure);
     setFailure('');
-    sessionStorage.setItem('current_user', JSON.stringify(respond));
+    sessionStorage.setItem('current_user', JSON.stringify(response));
     return history.push('/home');
   };
 

@@ -16,8 +16,10 @@ FETCH_CAR_ITEM_REQUEST,
 const baseURL = 'https://igo-api.herokuapp.com/api/v1';
 
 const signin = async(credits) => {
-  const response = await fetch(`${baseURL}/sessions`, {
-    headers: { 'Content-Type': 'application/json' },
+  const response = await fetch(`${baseURL}/login`, {
+    headers: { 
+      "Access-Control-Allow-Origin": "*"
+    },
     method: 'post',
     body: JSON.stringify(credits),
   })
@@ -30,6 +32,7 @@ const signup = async (credits) => {
   const response = await fetch(`${baseURL}/users`, {
     headers: { 'Content-Type': 'application/json' },
     method: 'post',
+    mode: 'no-cors',
     body: JSON.stringify({ user: credits }),
   })
     .then((res) => res.json())
