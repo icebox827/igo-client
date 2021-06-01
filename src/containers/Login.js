@@ -1,40 +1,42 @@
 import React from 'react';
-import { Formik } from 'formik';
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-  FormErrorMessage,
-  FormHelperText,
-} from '@chakra-ui/react';
+import { useState, useEffect, Component } from 'react';
+import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Text } from '@chakra-ui/react';
 
-const Login = () => {
-  function validateName(value) {
-    let error
-    if (!value) {
-      error = "username and password are required"
-    } 
-    return error
-  }
+const Login = (props) => {
+  const [userName, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const validateFileds = () => {
+    return userName.lenght > 0 && password.length > 0;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <Formik>
-      <FormControl id="form" isRequired name="name" validate={validateName}>
-        <FormLabel>Username</FormLabel>
-        <Input placeholder="username"/>
-        <FormLabel>Password</FormLabel>
-        <Input placeholder="password"/>
-        <Button
-          mt={4}
-          colorScheme="teal"
-          // isLoading={props.isSubmitting}
-          type="submit"
-        >
-          Submit
-        </Button>
-      </FormControl>
+    <div className="login">
+      <Text 
+        fontSize="4xl" 
+        color="blue.500" 
+        mt="4" 
+        textAlign="center" 
+        fontWeight="bold"
+      > 
+        Log in 
+      </Text>
+      <FormGroup controleId="username" bsSize="large">
+        <ControlLabel>username</ControlLabel>
+        <FormControl
+          autoFocus
+          type="text"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+        />
+      </FormGroup>
       
-    </Formik>
+    </div>
   )
 }
 
