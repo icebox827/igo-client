@@ -19,11 +19,22 @@ const signin = async() => {
   const response = await fetch(`${baseURL}/sessions`, {
     headers: { 'Content-Type': 'application/json' },
     method: 'post',
-    body: JSON.stringify({ user: username}),
+    body: JSON.stringify({username}),
   })
     .then((res) => res.json())
     .then((data) => data);
   return response
+};
+
+const signup = async (credits) => {
+  const response = await fetch(`${baseURL}/users`, {
+    headers: { 'Content-Type': 'application/json' },
+    method: 'post',
+    body: JSON.stringify({ user: username }),
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return response;
 };
 
 const fetchUser = () => async(dispatch) => {
@@ -50,4 +61,4 @@ const fetchCar = () => async(dispatch) => {
   }
 };
 
-export { fetchUser, fetchCar };
+export { fetchUser, fetchCar, signin, signup };
