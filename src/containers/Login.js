@@ -26,7 +26,7 @@ const Login = (props) => {
       > 
         Log in 
       </Text>
-      <FormGroup controleId="username" bsSize="large">
+      {/* <FormGroup controleId="username" bsSize="large">
         <ControlLabel>username</ControlLabel>
         <FormControl
           autoFocus
@@ -34,8 +34,8 @@ const Login = (props) => {
           value={username}
           onChange={e => setUsername(e.target.value)}
         />
-      </FormGroup>
-      
+      </FormGroup> */}
+
     </div>
   )
 }
