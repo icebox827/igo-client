@@ -65,3 +65,8 @@ input.login {
   bottom: 55rem;
   left: 5rem;
 }
+
+.footer {
+  background-color: blue;
+  height: 3rem;
+}

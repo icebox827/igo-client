@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from '../containers/Navbar';
+import Footer from '../containers/Footer';
 import Home from '../containers/Home';
 import Cars from '../containers/Cars';
 import Reservation from '../containers/Reservation';
@@ -20,6 +21,7 @@ const Routes = () => {
           <Route exact path='/car' component={Cars}  />
           <Route exact path='/login' component={Login} />
         </Switch>
+        <Footer />
       </Router>
     </Provider>
   )
