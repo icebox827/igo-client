@@ -13,11 +13,24 @@ FETCH_CAR_ITEM_REQUEST,
 FETCH_CARS_SUCCESS,
 } from './action';
 
+const baseURL = 'https://igo-api.herokuapp.com/api/v1';
+
+const signin = async() => {
+  const response = await fetch(`${baseURL}/sessions`, {
+    headers: { 'Content-Type': 'application/json' },
+    method: 'post',
+    body: JSON.stringify({ user: username}),
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return response
+};
+
 const fetchUser = () => async(dispatch) => {
   dispatch({ type: FETCH_USERS_REQUEST });
 
   try {
-    const response = await fetch('https://igo-api.herokuapp.com/api/v1/users');
+    const response = await fetch(`${baseURL}/users`);
     const data = await response.json();
     dispatch({ type: FETCH_USERS_SUCCESS, payload: data });
   } catch (error) {
