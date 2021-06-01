@@ -17,9 +17,7 @@ const baseURL = 'https://igo-api.herokuapp.com/api/v1';
 
 const signin = async(credits) => {
   const response = await fetch(`${baseURL}/login`, {
-    headers: { 
-      "Access-Control-Allow-Origin": "*"
-    },
+    headers: { "Access-Control-Allow-Origin": "*"},
     method: 'post',
     body: JSON.stringify(credits),
   })
@@ -30,7 +28,7 @@ const signin = async(credits) => {
 
 const signup = async (credits) => {
   const response = await fetch(`${baseURL}/users`, {
-    headers: { 'Content-Type': 'application/json' },
+    headers: { "Access-Control-Allow-Origin": "*" },
     method: 'post',
     mode: 'no-cors',
     body: JSON.stringify({ user: credits }),
@@ -44,7 +42,7 @@ const signup = async (credits) => {
 //   dispatch({ type: FETCH_USERS_REQUEST });
 
 //   try {
-//     const response = await fetch(`${baseURL}/users`);
+//     const response = await fetch(`${baseURL}/login);
 //     const data = await response.json();
 //     dispatch({ type: FETCH_USERS_SUCCESS, payload: data });
 //   } catch (error) {
@@ -56,7 +54,7 @@ const fetchCar = () => async(dispatch) => {
   dispatch({ type: FETCH_CARS_REQUEST });
 
   try {
-    const response = await fetch('https://igo-api.herokuapp.com/api/v1/cars');
+    const response = await fetch(`${baseURL}/cars`);
     const data = await response.json();
     dispatch({ type: FETCH_CARS_SUCCESS, payload: data })
   } catch (error) {

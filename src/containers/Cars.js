@@ -1,4 +1,4 @@
-  import { Flex, GridItem } from '@chakra-ui/react';
+import { Flex, GridItem } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCar } from '../actions/index';

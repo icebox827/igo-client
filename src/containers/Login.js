@@ -19,7 +19,7 @@ const Login = () => {
 
   const user = JSON.parse(sessionStorage.getItem('current_user'));
   if (user) {
-    history.push('/home');
+    history.push('/');
   };
 
   const handleChange = (e) => {
