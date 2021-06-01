@@ -1,14 +1,15 @@
 import React from 'react';
 import { useState, useEffect, Component } from 'react';
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Button, FormGroup, FormControl, FormLabel, Form } from 'react-bootstrap';
 import { Text } from '@chakra-ui/react';
 
+
 const Login = (props) => {
-  const [userName, setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const validateFileds = () => {
-    return userName.lenght > 0 && password.length > 0;
+  const validateFields = () => {
+    return username.lenght > 0 && password.length > 0;
   };
 
   const handleSubmit = (event) => {
@@ -26,16 +27,26 @@ const Login = (props) => {
       > 
         Log in 
       </Text>
-      {/* <FormGroup controleId="username" bsSize="large">
-        <ControlLabel>username</ControlLabel>
-        <FormControl
-          autoFocus
-          type="text"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-        />
-      </FormGroup> */}
-
+      <Form onSubmit={handleSubmit}>
+        <FormGroup controleId="username" bsSize="large">
+          <FormLabel>username</FormLabel>
+          <FormControl
+            autoFocus
+            type="text"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup controlId="password" bsSize="large">
+          <FormLabel>Passowrd</FormLabel>
+          <FormControl
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            type="password"
+          />
+        </FormGroup>
+        <Button block bsSize="large" disable={!validateFields()} type="submit" >Login</Button>
+      </Form>
     </div>
   )
 }
