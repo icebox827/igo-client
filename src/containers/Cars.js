@@ -35,8 +35,7 @@ const Cars= () => {
       <Card style={{ width: '21rem' }} className="bg-dark text-white mt-3" key={car.id}>
         <Card.Img variant="top" src={car.image_url} />
         <Card.Body>
-          <Card.Title className="make"><Text>{car.make}</Text></Card.Title>
-          <Card.Subtitle className="model"><Text>{car.model}</Text></Card.Subtitle>
+          <Card.Title className="make"><Text>{car.make} {car.model}</Text></Card.Title>
           <Card.Text className="car">
             <Text>year : {car.year}</Text>
             <Text>Color: {car.color}</Text>
