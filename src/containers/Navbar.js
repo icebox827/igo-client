@@ -4,7 +4,6 @@ import Logo from '../assets/Logo.png';
 
 const NavBar = () => {
   const username = (JSON.parse(sessionStorage.getItem('username')));
-  console.log(username)
   return (
     <Flex bg="blue.500">
       <Menu>
