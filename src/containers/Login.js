@@ -1,58 +1,53 @@
-import { Flex, GridItem,Text } from '@chakra-ui/react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUser } from '../actions/index';
-import Loader from '../components/Loader';
-import Error from '../components/Error';
+import { Flex, Text } from '@chakra-ui/react';
+import { useState } from 'react';
+import { useHistory } from 'react-router';
 import '../styles/App.css';
-import { 
-  FormControl, 
-  FormLabel,
-  FormErrorMessage, 
-  FormHelperText, 
-  Input,
-  Button, 
-} from '@chakra-ui/react';
-import { Formik } from 'formik';
-
 
 const Login = () => {
-  const dispatch = useDispatch();
-  const { users, login, loading, error } = useSelector((state) => state.users);
-
-  useEffect(() => {
-    dispatch(fetchUser);
-  },[dispatch]);
+  const history = useHistory();
+  const [user, setUser] = useState();
+  const [error, setError] = useState();
 
   const handleChange = (e) => {
-    dispatch(fetchUser(e.target.value));
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    });
   };
 
-  const handleSubmit = (e) => {
-    
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch('https://igo-api.herokuapp.com/api/v1/login', 
+      {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'post',
+        body: JSON.stringify(user)
+      }
+    )
+    .then(res => res.json())
+    .then(data => {
+
+      if (data.token) {
+        sessionStorage.setItem('userToken', JSON.stringify(data.token));
+        sessionStorage.setItem('username', JSON.stringify(user.username));
+        history.push('/')
+      }
+
+      if (data.error) {
+        setError(data.error)
+      }
+    });
   };
 
   const renderUser = () => {
-    if (loading) {
-      return (
-        <GridItem colSpan={4}>
-          <Loader />
-        </GridItem>
-      );
-    }
-    if (error) {
-      return (
-        <GridItem colSpan={4}>
-          <Error />
-        </GridItem>
-      );
-    }
 
     return (
-      <Formik>
-        <FormControl id="username">
-        <FormLabel>Username</FormLabel>
-        <Input
+      <>
+      {error && <p>{error}</p>}
+
+      <form onSubmit={handleSubmit}>
+        <label>Username</label>
+        <input
           onChange={handleChange} 
           type="text" 
           placeholder="Please enter your username"
@@ -61,12 +56,19 @@ const Login = () => {
           minLength="3"
           required
         />
-        <FormLabel>Password</FormLabel>
-        <Input type="password" placeholder="Please enter your password" />
-        <FormHelperText>We will never share your data.</FormHelperText>
-        <Button colorScheme="teal" variant="solid">Login</Button>
-        </FormControl>
-      </Formik>
+        <label>Password</label>
+        <input 
+          onChange={handleChange}
+          type="password" 
+          placeholder="Please enter your password"
+          className="password"
+          name="password"
+          minLength="6"
+          required 
+        />
+        <button type="submit">Login</button>
+      </form>
+      </>
     )
   };
 

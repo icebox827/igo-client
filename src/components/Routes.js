@@ -7,6 +7,7 @@ import Home from '../containers/Home';
 import Cars from '../containers/Cars';
 import Reservation from '../containers/Reservation';
 import Login from '../containers/Login';
+import Signup from '../containers/Signup';
 import '../styles/App.css';
 import store from '../store';
 
@@ -20,6 +21,7 @@ const Routes = () => {
           {/* <Route exact path='/reservation' component={Reservation} /> */}
           <Route exact path='/car' component={Cars}  />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={Signup} />
         </Switch>
         <Footer />
       </Router>

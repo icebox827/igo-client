@@ -1,100 +1,90 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Flex, Text } from '@chakra-ui/react';
+import { useState } from 'react';
 import { useHistory } from 'react-router';
-import { signup } from '../actions/index';
+import '../styles/App.css';
 
 const Signup = () => {
   const history = useHistory();
-  const [credits, setCredits] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
-  const [success, setSuccess] = useState();
-  const [failure, setFailure] = useState();
-  const user = JSON.parse(sessionStorage.getItem('current_user'));
-  if (user) {
-    history.push('/');
-  }
-  const handleClick = () => {
-    const btn = document.getElementById('signup');
-    btn.disabled = true;
-    btn.style.backgroundColor = '#4caf50';
-    btn.value = 'Wait...';
-  };
+  const [user, setUser] = useState();
+  const [error, setError] = useState();
+
   const handleChange = (e) => {
-    setCredits({ ...credits, [e.target.username]: e.target.value });
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFailure();
-    setSuccess();
-    handleClick();
-    const response = await signup(credits);
-    setSuccess(response.message);
-    if (!response.message) {
-      setFailure(response);
-    }
+    const response = await fetch('https://igo-api.herokuapp.com/api/v1/users', 
+      {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'post',
+        body: JSON.stringify(user)
+      }
+    )
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      if (data.message) {
+        history.push('/login')
+      }
+
+      if (data.error) {
+        setError(data.error)
+      }
+    });
   };
 
-  if (failure) {
-    const btn = document.getElementById('signup');
-    btn.disabled = false;
-    btn.style.backgroundColor = '#41b5e8';
-  }
-  return (
-    <>
-      <br />
-      <h1 className="text-center ">SignUp</h1>
+  const renderUser = () => {
 
-      <div className="flex-col center">
-        {success && (
-          <span className="alert-good">
-            {success}
-            {' '}
-            <Link to="/login">Click here to login.</Link>
-          </span>
-        )}
-        {failure
-          && failure.map((fail) => <span key={fail} className="alert-bad">{fail}</span>)}
-      </div>
-      <br />
-      <form onSubmit={handleSubmit} className="flex-col">
+    return (
+      <>
+      {error && error.map(err => <p key={err}>{err}</p>) }
+
+      <form onSubmit={handleSubmit}>
+        <label>Username</label>
         <input
-          onChange={handleChange}
-          type="text"
+          onChange={handleChange} 
+          type="text" 
+          placeholder="Please enter your username"
           className="username"
           name="username"
-          placeholder="username"
           minLength="3"
           required
         />
+        <label>email</label>
         <input
-          onChange={handleChange}
-          type="text"
-          className="emaul"
+          onChange={handleChange} 
+          type="text" 
+          placeholder="Please enter your email"
+          className="email"
           name="email"
-          placeholder="email"
           minLength="3"
           required
         />
-        <input
+        <label>Password</label>
+        <input 
           onChange={handleChange}
-          type="password"
+          type="password" 
+          placeholder="Please enter your password"
           className="password"
           name="password"
           minLength="6"
-          placeholder="Password"
-          required
+          required 
         />
-        <input
-          type="submit"
-          id="signup"
-          className="submit btn active login"
-          value="SIGN UP"
-        />
+        <button type="submit">Signup</button>
       </form>
-    </>
+      </>
+    )
+  };
+
+  return (
+    <Flex wrap="wrap" display="flex" w="100%">
+      <Text fontSize="3xl" color="blue.500" mt="4" textAlign="center" fontWeight="bold">Signup</Text>
+      {renderUser()}
+    </Flex>
   )
 }
 

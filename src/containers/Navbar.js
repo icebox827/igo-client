@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.png';
 
 const NavBar = () => {
+  const username = (JSON.parse(sessionStorage.getItem('username')));
+  console.log(username)
   return (
     <Flex bg="blue.500">
       <Menu>
@@ -40,12 +42,16 @@ const NavBar = () => {
         </Box>
         <Spacer />
         <Box>
-          <Button colorScheme="teal" mr="4">
+          {username && <span>{username}</span>}
+          { !username && <>
+            <Button colorScheme="teal" mr="4">
             <Link to="/signup">Sign Up</Link>
-          </Button>
-          <Button colorScheme="teal">
-          <Link to="/login">Log in</Link>
-          </Button>
+            </Button>
+            <Button colorScheme="teal">
+            <Link to="/login">Log in</Link>
+            </Button>
+             </>
+          }
         </Box>
       </Menu>
     </Flex>
