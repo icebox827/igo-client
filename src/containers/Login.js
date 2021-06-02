@@ -24,6 +24,14 @@ const Login = () => {
     dispatch(fetchUser);
   },[dispatch]);
 
+  const handleChange = () => {
+
+  };
+
+  const handleSubmit = (e) => {
+    
+  };
+
   const renderUser = () => {
     if (loading) {
       return (
