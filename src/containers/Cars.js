@@ -1,9 +1,8 @@
-import { Flex, GridItem } from '@chakra-ui/react';
+import { Flex, GridItem, Text } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCar } from '../actions/index';
 import { Card } from 'react-bootstrap';
-import { Text } from '@chakra-ui/react';
 import Loader from '../components/Loader';
 import Error from '../components/Error'
 
