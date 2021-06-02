@@ -23,7 +23,7 @@ const Login = () => {
   };
 
   const handleChange = (e) => {
-    setCredits({ ...credits, [e.target.name]: e.target.value });
+    setCredits({ ...credits, [e.target.username]: e.target.value });
   };
 
   const handleClick = () => {
@@ -42,7 +42,7 @@ const Login = () => {
     if (response && response.failure) return setFailure(response.failure);
     setFailure('');
     sessionStorage.setItem('current_user', JSON.stringify(response));
-    return history.push('/home');
+    return history.push('/');
   };
 
   
@@ -64,9 +64,9 @@ const Login = () => {
         <input
           onChange={handleChange}
           type="text"
-          className="name"
-          name="name"
-          placeholder="Name"
+          className="username"
+          name="username"
+          placeholder="username"
           required
         />
         <input

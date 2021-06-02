@@ -6,8 +6,9 @@ import { signup } from '../actions/index';
 const Signup = () => {
   const history = useHistory();
   const [credits, setCredits] = useState({
-    name: '',
-    password: '',
+    username: '',
+    email: '',
+    password: ''
   });
   const [success, setSuccess] = useState();
   const [failure, setFailure] = useState();
@@ -22,7 +23,7 @@ const Signup = () => {
     btn.value = 'Wait...';
   };
   const handleChange = (e) => {
-    setCredits({ ...credits, [e.target.name]: e.target.value });
+    setCredits({ ...credits, [e.target.username]: e.target.value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,9 +63,18 @@ const Signup = () => {
         <input
           onChange={handleChange}
           type="text"
-          className="name"
-          name="name"
-          placeholder="Name"
+          className="username"
+          name="username"
+          placeholder="username"
+          minLength="3"
+          required
+        />
+        <input
+          onChange={handleChange}
+          type="text"
+          className="emaul"
+          name="email"
+          placeholder="email"
           minLength="3"
           required
         />
