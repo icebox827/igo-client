@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCar } from '../actions/index';
 import { Card } from 'react-bootstrap';
+import { Text } from '@chakra-ui/react';
 import Loader from '../components/Loader';
 import Error from '../components/Error'
 
@@ -34,13 +35,13 @@ const Cars= () => {
       <Card style={{ width: '21rem' }} className="bg-dark text-white mt-3" key={car.id}>
         <Card.Img variant="top" src={car.image_url} />
         <Card.Body>
-          <Card.Title className="make"><h2>{car.make}</h2></Card.Title>
+          <Card.Title className="make"><Text>{car.make}</Text></Card.Title>
+          <Card.Subtitle className="model"><Text>{car.model}</Text></Card.Subtitle>
           <Card.Text className="car">
-            <h3>Model: {car.model}</h3>
-            <h3>year : {car.year}</h3>
-            <h3>Color: {car.color}</h3>
-            <h3>Transmission: {car.transmission}</h3>
-            <h3>Seats: {car.seats}</h3>
+            <Text>year : {car.year}</Text>
+            <Text>Color: {car.color}</Text>
+            <Text>Transmission: {car.transmission}</Text>
+            <Text>Seats: {car.seats}</Text>
           </Card.Text>
         </Card.Body>
       </Card>
