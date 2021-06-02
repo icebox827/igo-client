@@ -24,8 +24,8 @@ const Login = () => {
     dispatch(fetchUser);
   },[dispatch]);
 
-  const handleChange = () => {
-
+  const handleChange = (e) => {
+    dispatch(fetchUser(e.target.value));
   };
 
   const handleSubmit = (e) => {
@@ -52,7 +52,15 @@ const Login = () => {
       <Formik>
         <FormControl id="username">
         <FormLabel>Username</FormLabel>
-        <Input type="text" placeholder="Please enter your username" />
+        <Input
+          onChange={handleChange} 
+          type="text" 
+          placeholder="Please enter your username"
+          className="username"
+          name="username"
+          minLength="3"
+          required
+        />
         <FormLabel>Password</FormLabel>
         <Input type="password" placeholder="Please enter your password" />
         <FormHelperText>We will never share your data.</FormHelperText>
@@ -64,6 +72,7 @@ const Login = () => {
 
   return (
     <Flex wrap="wrap" display="flex" w="100%">
+      <Text fontSize="3xl" color="blue.500" mt="4" textAlign="center" fontWeight="bold">Login</Text>
       {renderUser()}
     </Flex>
   )
