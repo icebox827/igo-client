@@ -42,7 +42,7 @@ const Cars= () => {
             <Text>Seats: {car.seats}</Text>
           </Card.Text>
         </Card.Body>
-        <a href={`\\carDetail\\${car.id}`} className="btn">Details</a>
+        <a href={`\\carDetail\\${car.id}`} className="btn">Click for details</a>
       </Card>
     ));
   };
