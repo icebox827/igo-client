@@ -24,4 +24,16 @@ const fetchCar = () => async(dispatch) => {
   }
 };
 
-export { fetchCar };
+const fetchCarItem = ({id}) => async(dispatch) => {
+  dispatch({ type: FETCH_CAR_ITEM_REQUEST });
+
+  try {
+    const response = await fetch(`${baseURL}/cars/${id}`);
+    const data = respon.json();
+    dispatch({ type: FETCH_CAR_ITEM_SUCCESS });
+  } catch (error) {
+    dispatch({ type: FETCH_CAR_ITEM_FAILURE });
+  }
+};
+
+export { fetchCar, fetchCarItem };
