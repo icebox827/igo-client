@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarItem } from '../actions/index';
 import { Jumbotron, Container } from 'react-bootstrap';
 import { GridItem, Text, Image, Link } from '@chakra-ui/react';
-import PropTypes from 'prop-types';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
 import Error from '../components/Error'
@@ -53,22 +52,6 @@ const CarDetail = () => {
       </Container>
     </Jumbotron>
   )
-};
-
-CarDetail.propTypes = {
-  carItem: PropTypes.shape({
-    make: PropTypes.string,
-    year: PropTypes.number,
-    model: PropTypes.string,
-    transmission: PropTypes.string,
-    color: PropTypes.string,
-    seats: PropTypes.number,
-    image_url: PropTypes.string,
-  }),
-};
-
-CarDetail.defaultProps = {
-  carItem: {},
 };
 
 export default CarDetail;
