@@ -37,13 +37,15 @@ const fetchCarItem = (id) => async(dispatch) => {
   }
 };
 
-const fetchBookedcar = () => async(dispatch) => {
+const fetchBookedcar = (id) => async(dispatch) => {
  dispatch({ type: FETCH_BOOKED_CARS_REQUEST });
 
  try {
-  const response = await fetch('')
+  const response = await fetch(`${baseURL}/booked_cars/${id}`);
+  const data = await response.json();
+  dispatch({ type: FETCH_BOOKED_CARS_SUCCESS, payload: data });
  } catch (error) {
-
+  dispatch({ type: FETCH_BOOKED_CARS_FAILURE, payload: error})
  }
 }
 
