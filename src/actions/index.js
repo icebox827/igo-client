@@ -1,4 +1,7 @@
 import {
+BOOKED_REQUEST,
+BOOKED_SUCCESS,
+BOOKED_FAILURE,
 FETCH_CARS_REQUEST,
 FETCH_CARS_SUCCESS,
 FETCH_CARS_FAILURE,
@@ -49,4 +52,19 @@ const fetchBookedcar = (id) => async(dispatch) => {
  }
 }
 
-export { fetchCar, fetchCarItem, fetchBookedcar };
+const bookedCar = () => async(dispatch) => {
+  dispatch({ type: BOOKED_REQUEST });
+
+  try {
+    const response = await fetch(`${baseURL}/booked_cars`, {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'post',
+    })
+    const data = response.json();
+    dispatch({ type: BOOKED_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({ type: BOOKED_FAILURE, payload: error })
+  } 
+}
+
+export { fetchCar, fetchCarItem, fetchBookedcar, bookedCar };
