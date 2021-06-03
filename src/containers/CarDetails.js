@@ -1,19 +1,16 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCarItem } from '../actions/index';
+import { fetchCarItem, bookedCar } from '../actions/index';
 import { GridItem, Text, Image, Button, Grid, Box } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
 import Error from '../components/Error'
-import { useHistory } from 'react-router';
 
 const CarDetail = () => {
-  const history = useHistory();
   const dispatch = useDispatch();
   const { carItem, loading, error } = useSelector((state) => state.carItem);
   const { id } = useParams();
-  const [user] = useState();
 
   useEffect(() => {
     dispatch(fetchCarItem(id));
@@ -21,19 +18,7 @@ const CarDetail = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('https://igo-api.herokuapp.com/api/v1/booked_cars/', 
-      {
-        headers: { 'Content-Type': 'application/json' },
-        method: 'post',
-        body: JSON.stringify(user)
-      }
-    )
-    .then(res => res.json())
-    .then(data => {
-      if (data.message) {
-        history.push('/')
-      }
-    });
+    bookedCar();
   };
 
   if (loading) {

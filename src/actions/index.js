@@ -60,7 +60,7 @@ const bookedCar = () => async(dispatch) => {
       headers: { 'Content-Type': 'application/json' },
       method: 'post',
     })
-    const data = response.json();
+    const data = await response.json();
     dispatch({ type: BOOKED_SUCCESS, payload: data })
   } catch (error) {
     dispatch({ type: BOOKED_FAILURE, payload: error })
