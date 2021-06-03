@@ -24,7 +24,7 @@ const fetchCar = () => async(dispatch) => {
   }
 };
 
-const fetchCarItem = ({id}) => async(dispatch) => {
+const fetchCarItem = (id) => async(dispatch) => {
   dispatch({ type: FETCH_CAR_ITEM_REQUEST });
 
   try {
