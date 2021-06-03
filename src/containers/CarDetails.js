@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarItem } from '../actions/index';
 import { Jumbotron, Container } from 'react-bootstrap';
-import { GridItem, Text, Image, Button } from '@chakra-ui/react';
+import { GridItem, Text, Image, Button, Grid, Box } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
 import Error from '../components/Error'
@@ -33,14 +33,16 @@ const CarDetail = () => {
   }
 
   return (
-    <Jumbotron fluid>
-      <Container className="carItem">
+    <Grid templateColumns="repeat(2, 1fr)">
+      <Box>
         <Image
           src={carItem.image_url}
           alt="car"
           className="image"
         />
-        <Text fontSize="2xl" color="blue.500" mt="2" textAlign="center" fontWeight="bold">{carItem.make} {carItem.model}</Text>
+      </Box>
+      <Box>
+      <Text fontSize="2xl" color="blue.500" mt="2" textAlign="center" fontWeight="bold">{carItem.make} {carItem.model}</Text>
         <Text textAlign="center" >year : {carItem.year}</Text>
         <Text textAlign="center">Color: {carItem.color}</Text>
         <Text textAlign="center">Transmission: {carItem.transmission}</Text>
@@ -51,8 +53,8 @@ const CarDetail = () => {
           {' '}
           Book now
         </Button>
-      </Container>
-    </Jumbotron>
+      </Box>
+    </Grid>
   )
 };
 

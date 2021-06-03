@@ -37,4 +37,14 @@ const fetchCarItem = (id) => async(dispatch) => {
   }
 };
 
-export { fetchCar, fetchCarItem };
+const fetchBookedcar = () => async(dispatch) => {
+ dispatch({ type: FETCH_BOOKED_CARS_REQUEST });
+
+ try {
+  const response = await fetch('')
+ } catch (error) {
+
+ }
+}
+
+export { fetchCar, fetchCarItem, fetchBookedcar };
