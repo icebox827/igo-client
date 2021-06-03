@@ -1,41 +1,38 @@
 import {
-  FETCH_USERS_REQUEST,
-  FETCH_USERS_SUCCESS,
-  FETCH_USERS_FAILURE,
+  BOOKED_REQUEST,
+  BOOKED_SUCCESS,
+  BOOKED_FAILURE,
 } from '../actions/action';
 
 const INITIAL_STATE = {
-  users: [],
-  login: false,
+  message: [],
   loading: false,
   error: null,
 };
 
-const userReducer = (state = INITIAL_STATE, action) => {
+const bookedReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case FETCH_USERS_REQUEST:
+    case BOOKED_REQUEST:
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case FETCH_USERS_SUCCESS:
+    case BOOKED_SUCCESS:
       return {
         ...state,
         loading: false,
-        users: action.payload,
-        login: true,
+        message: action.payload,
       };
-    case FETCH_USERS_FAILURE:
+    case BOOKED_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload,
-        login: false
       };
     default:
       return state;
   };
 };
 
-export default userReducer;
+export default bookedReducer;

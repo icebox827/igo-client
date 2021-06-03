@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import userReducer from './userReducer';
+import bookedReducer from './bookedReducer';
 import carReducer from './carReducer';
 import bookedCarReducer from './bookedCarReducer';
 import CarItemReducer from './carItemReducer';
 
 const allReducers = combineReducers({
-  users: userReducer,
+  users: bookedReducer,
   cars: carReducer,
   carItem: CarItemReducer,
   bookedCar: bookedCarReducer,
