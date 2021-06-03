@@ -29,7 +29,8 @@ const fetchCarItem = (id) => async(dispatch) => {
 
   try {
     const response = await fetch(`${baseURL}/cars/${id}`);
-    const data = response.json();
+    const data = await response.json();
+    console.log(data)
     dispatch({ type: FETCH_CAR_ITEM_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: FETCH_CAR_ITEM_FAILURE, payload: error });
