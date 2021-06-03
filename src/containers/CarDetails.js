@@ -18,7 +18,7 @@ const CarDetail = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    bookedCar();
+    dispatch(bookedCar());
   };
 
   if (loading) {
@@ -37,7 +37,7 @@ const CarDetail = () => {
   }
 
   return (
-    <Grid templateColumns="repeat(2, 1fr)">
+    <Grid templateColumns="repeat(2, 1fr)" onSubmit={handleSubmit}>
       <Box>
         <Image
           src={carItem.image_url}
@@ -46,14 +46,28 @@ const CarDetail = () => {
         />
       </Box>
       <Box>
-        <Text fontSize="2xl" color="blue.500" mt="2" textAlign="center" fontWeight="bold">{carItem.make} {carItem.model}</Text>
+        <Text 
+          fontSize="2xl" 
+          color="blue.500" 
+          mt="2" 
+          textAlign="center" 
+          fontWeight="bold"
+        >
+          {carItem.make} {carItem.model}
+        </Text>
         <Text textAlign="center" >year : {carItem.year}</Text>
         <Text textAlign="center">Color: {carItem.color}</Text>
         <Text textAlign="center">Transmission: {carItem.transmission}</Text>
         <Text textAlign="center">Seats: {carItem.seats}</Text>
         <br />
         <br />
-        <Button href="" target="__blank" rel="noopener" className="favorite" colorScheme="teal" onSubmit={handleSubmit}>
+        <Button 
+          href={`\\reservation\\${carItem.id}`}
+          target="__blank" 
+          rel="noopener" 
+          className="favorite" 
+          colorScheme="teal" 
+        >
           {' '}
           Book now
         </Button>
