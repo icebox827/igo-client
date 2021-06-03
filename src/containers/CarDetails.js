@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarItem } from '../actions/index';
-import { Jumbotron, Container } from 'react-bootstrap';
 import { GridItem, Text, Image, Button, Grid, Box } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
