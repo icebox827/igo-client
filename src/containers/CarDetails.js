@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarItem } from '../actions/index';
 import { Jumbotron, Container } from 'react-bootstrap';
-import { GridItem, Text, Image, Link } from '@chakra-ui/react';
+import { GridItem, Text, Image, Button } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
 import Error from '../components/Error'
@@ -34,21 +34,23 @@ const CarDetail = () => {
 
   return (
     <Jumbotron fluid>
-      <Container>
+      <Container className="carItem">
         <Image
           src={carItem.image_url}
           alt="car"
           className="image"
         />
-        <Text>{carItem.make} {carItem.model}</Text>
-        <Text>year : {carItem.year}</Text>
-        <Text>Color: {carItem.color}</Text>
-        <Text>Transmission: {carItem.transmission}</Text>
-        <Text>Seats: {carItem.seats}</Text>
-        <Link href="" target="__blank" rel="noopener" className="favorite">
+        <Text fontSize="2xl" color="blue.500" mt="2" textAlign="center" fontWeight="bold">{carItem.make} {carItem.model}</Text>
+        <Text textAlign="center" >year : {carItem.year}</Text>
+        <Text textAlign="center">Color: {carItem.color}</Text>
+        <Text textAlign="center">Transmission: {carItem.transmission}</Text>
+        <Text textAlign="center">Seats: {carItem.seats}</Text>
+        <br />
+        <br />
+        <Button href="" target="__blank" rel="noopener" className="favorite" colorScheme="teal">
           {' '}
           Book now
-        </Link>
+        </Button>
       </Container>
     </Jumbotron>
   )

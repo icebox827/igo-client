@@ -92,3 +92,14 @@ form {
   margin: 10px;
   box-shadow: 5px 10px #888888;
 }
+
+.image {
+  box-shadow: 5px 10px #888888;
+  height: 50vh;
+  float: left;
+}
+
+.favorite {
+  position: absolute;
+  left: 25%
+}
