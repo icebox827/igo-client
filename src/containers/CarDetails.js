@@ -19,15 +19,7 @@ const CarDetail = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(bookedCar());
-    axios ({
-      method: 'POST',
-      url: 'https://igo-api.herokuapp.com/api/v1/booked_cars',
-      data: {
-        user_id: authData.user.id,
-        card_id: carItem.id
-      }
-    })
+    dispatch(bookedCar());
   };
 
   if (loading) {
