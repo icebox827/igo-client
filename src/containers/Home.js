@@ -25,15 +25,6 @@ const Home = () => {
           <p className="legend">Legend 3</p>
       </div>
     </Carousel>
-    // <Jumbotron>
-    //   <Container>
-    //     <img src={carshow} alt="logo" className="rentcar" />
-    //     <BookRide />
-    //     <Text fontSize="4xl" color="blue.500" mt="4" textAlign="center" fontWeight="bold">
-    //       The right place to book your favorite car
-    //     </Text>  
-    //   </Container>
-    // </Jumbotron>
   )
 };
 

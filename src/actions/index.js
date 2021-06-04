@@ -13,6 +13,8 @@ FETCH_CAR_ITEM_FAILURE,
 FETCH_CAR_ITEM_REQUEST,
 } from './action';
 
+import axios from 'axios';
+
 const baseURL = 'https://igo-api.herokuapp.com/api/v1';
 
 const fetchCar = () => async(dispatch) => {
@@ -56,10 +58,7 @@ const bookedCar = () => async(dispatch) => {
   dispatch({ type: BOOKED_REQUEST });
 
   try {
-    const response = await fetch(`${baseURL}/booked_cars`, {
-      headers: { 'Content-Type': 'application/json' },
-      method: 'post',
-    })
+    const response = await axios.post(`${baseURL}/booked_cars`)
     const data = await response.json();
     console.log('hey')
     dispatch({ type: BOOKED_SUCCESS, payload: data })
