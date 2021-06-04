@@ -2,10 +2,11 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarItem, bookedCar } from '../actions/index';
-import { GridItem, Text, Image, Button, Grid, Box } from '@chakra-ui/react';
+import { GridItem, Text, Image, Grid, Box } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
-import Error from '../components/Error'
+import Error from '../components/Error';
+import axios from 'axios';
 
 const CarDetail = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const CarDetail = () => {
     dispatch(fetchCarItem(id));
   },[dispatch])
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(bookedCar());
   };
@@ -37,7 +38,7 @@ const CarDetail = () => {
   }
 
   return (
-    <Grid templateColumns="repeat(2, 1fr)" onSubmit={handleSubmit}>
+    <Grid templateColumns="repeat(2, 1fr)" >
       <Box>
         <Image
           src={carItem.image_url}
@@ -61,16 +62,13 @@ const CarDetail = () => {
         <Text textAlign="center">Seats: {carItem.seats}</Text>
         <br />
         <br />
-        <Button 
-          href={`\\reservation\\${carItem.id}`}
-          target="__blank" 
-          rel="noopener" 
-          className="favorite" 
-          colorScheme="teal" 
-        >
-          {' '}
-          Book now
-        </Button>
+        <from onSubmit={handleSubmit}>
+          <input 
+            type="submit"
+            value="Book now" 
+            className="btn_favorite"  
+          />
+        </from>
       </Box>
     </Grid>
   )
