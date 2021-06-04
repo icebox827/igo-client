@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarItem, bookedCar } from '../actions/index';
-import { GridItem, Text, Image, Grid, Box } from '@chakra-ui/react';
+import { GridItem, Text, Image, Grid, Box, tokenToCSSVar } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
@@ -19,7 +19,15 @@ const CarDetail = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(bookedCar());
+    // dispatch(bookedCar());
+    axios ({
+      method: 'POST',
+      url: 'https://igo-api.herokuapp.com/api/v1/booked_cars',
+      data: {
+        user_id: authData.user.id,
+        card_id: carItem.id
+      }
+    })
   };
 
   if (loading) {
@@ -62,13 +70,13 @@ const CarDetail = () => {
         <Text textAlign="center">Seats: {carItem.seats}</Text>
         <br />
         <br />
-        <from onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <input 
             type="submit"
             value="Book now" 
             className="btn_favorite"  
           />
-        </from>
+        </form>
       </Box>
     </Grid>
   )
