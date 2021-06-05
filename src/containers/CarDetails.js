@@ -21,7 +21,6 @@ const CarDetail = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userToken = (JSON.parse(sessionStorage.getItem('userToken')));
-    console.log(userToken)
     try {
       const response = await fetch('https://igo-api.herokuapp.com/api/v1/booked_cars', {
       method: 'POST',
