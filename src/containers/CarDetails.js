@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarItem, bookedCar } from '../actions/index';
 import { GridItem, Text, Image, Grid, Box, tokenToCSSVar } from '@chakra-ui/react';
@@ -10,6 +10,7 @@ import axios from 'axios';
 
 const CarDetail = () => {
   const dispatch = useDispatch();
+  const [message, setMessage] = useState('');
   const { carItem, loading, error } = useSelector((state) => state.carItem);
   const { id } = useParams();
 
@@ -17,9 +18,33 @@ const CarDetail = () => {
     dispatch(fetchCarItem(id));
   },[dispatch])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(bookedCar());
+    const userToken = (JSON.parse(sessionStorage.getItem('userToken')));
+    console.log(userToken)
+    try {
+      const response = await fetch('https://igo-api.herokuapp.com/api/v1/booked_cars', {
+      method: 'POST',
+      body: JSON.stringify({
+        car_id: carItem.id
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': `Bearer ${userToken}`
+      }
+    })
+    const json = await response.json();
+    setMessage(json.message);
+    displayMessage();
+    } catch (err) {
+      return (err)
+    }
+  };
+
+  const displayMessage = () => {
+    setTimeout(() => {
+      setMessage('')
+    }, 5000)
   };
 
   if (loading) {
@@ -38,6 +63,8 @@ const CarDetail = () => {
   }
 
   return (
+    <>
+    <Text>{message}</Text>
     <Grid templateColumns="repeat(2, 1fr)" >
       <Box>
         <Image
@@ -71,6 +98,7 @@ const CarDetail = () => {
         </form>
       </Box>
     </Grid>
+    </>
   )
 };
 
