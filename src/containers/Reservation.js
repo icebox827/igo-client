@@ -11,10 +11,9 @@ import Error from '../components/Error'
 const Reservation = () => {
   const dispatch = useDispatch();
   const { bookedCar, loading, error } = useSelector((state) => state.bookedCar);
-  const { id } = useParams();
 
   useEffect(() => {
-    dispatch(fetchBookedcar(id));
+    dispatch(fetchBookedcar());
   },[dispatch])
 
   if (loading) {
@@ -32,33 +31,23 @@ const Reservation = () => {
     );
   }
 
-  return (
-    <Card style={{ width: '21rem' }} className="bg-dark text-white mt-3" key={bookedCar.id}>
-      <Card.Img variant="top" src={bookedCar.image_url} />
-        <Card.Body>
-          <Card.Title className="make">
-            <Text 
-              fontSize="2xl" 
-              color="blue.500" 
-              mt="2" 
-              textAlign="center" 
-              fontWeight="bold"
-            >
-              {bookedCar.make} {bookedCar.model}
-            </Text>
-          </Card.Title>
-          <Card.Text className="car">
-            <Text>year : {bookedCar.year}</Text>
-            <hr/>
-            <Text>Color: {bookedCar.color}</Text>
-            <hr/>
-            <Text>Transmission: {bookedCar.transmission}</Text>
-            <hr/>
-            <Text>Seats: {bookedCar.seats}</Text>
-          </Card.Text>
-        </Card.Body>
+  return bookedCar.map((cars) => (
+    <Card style={{ width: '21rem' }} className="bg-dark text-white mt-3" key={cars.id}>
+      <Card.Img variant="top" src={cars.image_url} />
+      <Card.Body>
+        <Card.Title className="make"><Text fontSize="2xl" color="blue.500" mt="2" textAlign="center" fontWeight="bold">{cars.make} {cars.model}</Text></Card.Title>
+        <Card.Text className="car">
+          <Text>year : {cars.year}</Text>
+          <hr/>
+          <Text>Color: {cars.color}</Text>
+          <hr/>
+          <Text>Transmission: {cars.transmission}</Text>
+          <hr/>
+          <Text>Seats: {cars.seats}</Text>
+        </Card.Text>
+      </Card.Body>
     </Card>
-  )
+  ));
 };
 
 export default Reservation;
