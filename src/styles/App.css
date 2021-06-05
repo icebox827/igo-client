@@ -68,6 +68,9 @@ input.login {
   background-color: blue;
   height: 3rem;
   color: white;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 .btn {
