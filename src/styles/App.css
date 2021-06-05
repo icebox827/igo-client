@@ -131,3 +131,11 @@ form {
   width: 25%;
   border-radius: 4px;
 }
+
+.btnSignup {
+  background-color: blue;
+  margin: 10px;
+  color: white;
+  width: 25%;
+  border-radius: 4px;
+}
