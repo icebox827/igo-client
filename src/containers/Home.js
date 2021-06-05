@@ -14,15 +14,15 @@ const Home = () => {
     <Carousel>
       <div>
           <img src={carshow} />
-          <p className="legend">Legend 1</p>
+          <p className="legend">Drive the Excellence</p>
       </div>
       <div>
           <img src={car} />
-          <p className="legend">Legend 2</p>
+          <p className="legend">One clik to bookd and add it to you favorite</p>
       </div>
       <div>
           <img src={rentacar} />
-          <p className="legend">Legend 3</p>
+          <p className="legend">Cars are us</p>
       </div>
     </Carousel>
   )
