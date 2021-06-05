@@ -1,19 +1,34 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBookedcar, fetchCarItem } from '../actions/index';
 import { GridItem, Text, Flex, Box } from '@chakra-ui/react';
 import { Card } from 'react-bootstrap';
+import { useParams } from 'react-router';
 import Loader from '../components/Loader';
-import Error from '../components/Error'
+import Error from '../components/Error';
 
 const Reservation = () => {
   const dispatch = useDispatch();
+  const [carId, setCarId] = useState('');
   const { bookedCar, loading, error } = useSelector((state) => state.bookedCar);
+  const { id } = useParams()
 
   useEffect(() => {
     dispatch(fetchBookedcar());
   },[dispatch])
+
+  const handleChange = (e) => {
+    setCarId({
+      ...carId,
+      [e.target.name]: e.target.value
+    })
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(fetchCarItem(id));
+  };
 
   if (loading) {
     return (
@@ -34,7 +49,6 @@ const Reservation = () => {
     return bookedCar.map((cars) => (
       <>
       <Card style={{ width: '21rem' }} className="bg-dark text-white mt-3" key={cars.user_id}>
-        <Card.Img variant="top" src={cars.image_url} />
         <Card.Body>
           <Card.Title className="make">
             <Text 
@@ -52,6 +66,9 @@ const Reservation = () => {
               Submit the ID to visualize the car details
             </Text>
           </Card.Subtitle>
+          <Card.Text>
+
+          </Card.Text>
         </Card.Body>
       </Card>
       </>
@@ -67,16 +84,21 @@ const Reservation = () => {
         Booked car ID list
       </Text>
       <Box>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>Enter ID:</label>
-          <input type="text" placeholder="Car ID" className="idForm" />
+          <input 
+            type="text" 
+            placeholder="Car ID" 
+            className="idForm" 
+            name="name"
+            onChange={handleChange}
+          />
           <input type="submit" value="See car" className="btnID"/>
         </form>
       </Box>
       {renderBookedCar()}
     </Flex>
   )
-  
 };
 
 export default Reservation;

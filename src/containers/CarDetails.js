@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarItem } from '../actions/index';
 import { GridItem, Text, Image, Grid, Box, } from '@chakra-ui/react';
-import { Jumbotron, Container } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
