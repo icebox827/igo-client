@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarItem } from '../actions/index';
 import { GridItem, Text, Image, Grid, Box, } from '@chakra-ui/react';
+import { Jumbotron, Container } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
@@ -104,15 +105,26 @@ const CarDetail = () => {
     <Box>
       <Text textAlign="center" color="blue.500" fontSize="4xl">Book you car with one click</Text>
       <Text textAlign="center" color="teal" fontSize="2xl">and it will be add to your favorite</Text>
-      <Image 
-        src={me} 
-        alt="owner" 
-        className="profile"
-        objectFit="cover" 
-        boxSize="200px"
-        borderRadius="full"
-      />
     </Box>
+    <Grid templateColumns="repeat(2, 1fr)" mt="4">
+      <Box>
+        <Image 
+          src={me} 
+          alt="owner" 
+          className="profile"
+          objectFit="cover" 
+          boxSize="250px"
+          borderRadius="full"
+        />
+      </Box>
+      <Box>
+        <Text className="mojo">
+          There is no such pleasure like sitting behind the wheel of our dream car. At igo
+          We are you to provide you with the best driving experience, as ou motto says, you are
+          driving the excellence.
+        </Text>
+      </Box>
+    </Grid>
   </>
   )
 };

@@ -96,6 +96,7 @@ form {
 
 .profile {
  margin-left: 20px;
+ margin-bottom: 20px;
 }
 
 .btn_favorite {
@@ -109,4 +110,8 @@ form {
   color: white;
   margin-right: 15px;
   margin-bottom: 20px;
+}
+
+.mojo {
+  margin-right: 20px;
 }
