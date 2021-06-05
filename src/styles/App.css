@@ -61,9 +61,7 @@ input.login {
 }
 
 .call-action {
-  position: relative;
-  bottom: 55rem;
-  left: 5rem;
+  float: right;
 }
 
 .footer {
