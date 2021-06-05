@@ -97,7 +97,9 @@ form {
   float: left;
 }
 
-.favorite {
-  position: absolute;
-  left: 25%
+.btn_favorite {
+  background-color: darkcyan;
+  color: white;
+  border-radius: 4px;
+  margin: 0 auto;
 }

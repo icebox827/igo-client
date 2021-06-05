@@ -87,6 +87,7 @@ const CarDetail = () => {
         <Text textAlign="center" color="teal" fontSize="3xl">{message}</Text>
         <br />
         <br />
+        <Text textAlign="center">
         <form onSubmit={handleSubmit}>
           <input 
             type="submit"
@@ -94,6 +95,7 @@ const CarDetail = () => {
             className="btn_favorite"  
           />
         </form>
+        </Text>
       </Box>
     </Grid>
   )
