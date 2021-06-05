@@ -43,7 +43,7 @@ const CarDetail = () => {
   const displayMessage = () => {
     setTimeout(() => {
       setMessage('')
-    }, 5000)
+    }, 3000)
   };
 
   if (loading) {
@@ -81,7 +81,7 @@ const CarDetail = () => {
         >
           {carItem.make} {carItem.model}
         </Text>
-        <Text textAlign="center" >year : {carItem.year}</Text>
+        <Text textAlign="center" >Year : {carItem.year}</Text>
         <Text textAlign="center">Color: {carItem.color}</Text>
         <Text textAlign="center">Transmission: {carItem.transmission}</Text>
         <Text textAlign="center">Seats: {carItem.seats}</Text>

@@ -18,16 +18,17 @@ const DisplayBookedCar = ({bookedCar}) => {
               textAlign="center" 
               fontWeight="bold"
             >
-              User: {cars.user_id} / Car: {cars.car_id}
+               {cars.make} {cars.model}
             </Text>
           </Card.Title>
-          <Card.Subtitle>
-            <Text  textAlign="center" >
-              Submit the ID to visualize the car details
-            </Text>
-          </Card.Subtitle>
-          <Card.Text>
-
+          <Card.Text className="car">
+            <Text>Year : {cars.year}</Text>
+            <hr/>
+            <Text>Color: {cars.color}</Text>
+            <hr/>
+            <Text>Transmission: {cars.transmission}</Text>
+            <hr/>
+            <Text>Seats: {cars.seats}</Text>
           </Card.Text>
         </Card.Body>
       </Card>

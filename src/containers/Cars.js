@@ -36,7 +36,7 @@ const Cars= () => {
         <Card.Body>
           <Card.Title className="make"><Text fontSize="2xl" color="blue.500" mt="2" textAlign="center" fontWeight="bold">{car.make} {car.model}</Text></Card.Title>
           <Card.Text className="car">
-            <Text>year : {car.year}</Text>
+            <Text>Year : {car.year}</Text>
             <hr/>
             <Text>Color: {car.color}</Text>
             <hr/>
