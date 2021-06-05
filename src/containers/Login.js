@@ -47,7 +47,7 @@ const Login = () => {
       {error && <p>{error}</p>}
 
       <form onSubmit={handleSubmit}>
-        <label>Username</label>
+        <label className="label">Username :</label>
         <input
           onChange={handleChange} 
           type="text" 
@@ -57,7 +57,7 @@ const Login = () => {
           minLength="3"
           required
         />
-        <label>Password</label>
+        <label className="label">Password :</label>
         <input 
           onChange={handleChange}
           type="password" 
@@ -67,7 +67,7 @@ const Login = () => {
           minLength="6"
           required 
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="btnLogin">Login</button>
       </form>
       </>
     )

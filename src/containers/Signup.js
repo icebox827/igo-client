@@ -44,7 +44,7 @@ const Signup = () => {
       {error && error.map(err => <p key={err}>{err}</p>) }
 
       <form onSubmit={handleSubmit}>
-        <label>Username</label>
+        <label className="label">Username</label>
         <input
           onChange={handleChange} 
           type="text" 
@@ -54,7 +54,7 @@ const Signup = () => {
           minLength="3"
           required
         />
-        <label>email</label>
+        <label className="label">email</label>
         <input
           onChange={handleChange} 
           type="text" 
@@ -64,7 +64,7 @@ const Signup = () => {
           minLength="3"
           required
         />
-        <label>Password</label>
+        <label className="label">Password</label>
         <input 
           onChange={handleChange}
           type="password" 

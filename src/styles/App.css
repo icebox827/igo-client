@@ -118,3 +118,16 @@ form {
   float: left;
   margin-left: 20px;
 }
+
+.label {
+  margin: 10px;
+  font-weight: 700;
+}
+
+.btnLogin {
+  background-color: darkcyan;
+  margin: 10px;
+  color: white;
+  width: 25%;
+  border-radius: 4px;
+}
