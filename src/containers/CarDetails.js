@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarItem } from '../actions/index';
-import { GridItem, Text, Image, Grid, Box, Modal, ModalContent } from '@chakra-ui/react';
+import { GridItem, Text, Image, Grid, Box, } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
@@ -62,6 +62,7 @@ const CarDetail = () => {
   }
 
   return (
+    <>
     <Grid templateColumns="repeat(2, 1fr)" >
       <Box>
         <Image
@@ -98,6 +99,12 @@ const CarDetail = () => {
         </Text>
       </Box>
     </Grid>
+    <hr />
+    <Box>
+      <Text textAlign="center" color="blue.500" fontSize="4xl">Book you car with one click</Text>
+      <Text textAlign="center" color="teal" fontSize="2xl">and it will be add to your favorite</Text>
+    </Box>
+  </>
   )
 };
 
