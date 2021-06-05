@@ -37,7 +37,7 @@ const CarDetail = () => {
     setMessage(json.message);
     displayMessage();
     } catch (err) {
-      return (err)
+      return err
     }
   };
 
