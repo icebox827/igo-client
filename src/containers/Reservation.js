@@ -1,10 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBookedcar } from '../actions/index';
+import { fetchBookedcar, fetchCarItem } from '../actions/index';
 import { GridItem, Text, Flex, Box } from '@chakra-ui/react';
 import { Card } from 'react-bootstrap';
-import PropTypes from 'prop-types';
 import Loader from '../components/Loader';
 import Error from '../components/Error'
 
@@ -45,19 +44,14 @@ const Reservation = () => {
               textAlign="center" 
               fontWeight="bold"
             >
-              {cars.make} {cars.model}
+              User: {cars.user_id} / Car: {cars.car_id}
             </Text>
           </Card.Title>
-          <Card.Subtitle>User: {cars.user_id} / Car: {cars.car_id}</Card.Subtitle>
-          {/* <Card.Text className="car">
-            <Text>year : {cars.year}</Text>
-            <hr/>
-            <Text>Color: {cars.color}</Text>
-            <hr/>
-            <Text>Transmission: {cars.transmission}</Text>
-            <hr/>
-            <Text>Seats: {cars.seats}</Text>
-          </Card.Text> */}
+          <Card.Subtitle>
+            <Text  textAlign="center" >
+              Submit the ID to visualize the car details
+            </Text>
+          </Card.Subtitle>
         </Card.Body>
       </Card>
       </>
