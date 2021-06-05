@@ -34,9 +34,6 @@ const Reservation = () => {
   const admin = JSON.parse(sessionStorage.getItem('admin'))
   return (
     <Flex wrap="wrap" display="flex" w="100%">
-      <Text fontSize="3xl" color="blue.500" mt="4" textAlign="center" fontWeight="bold">
-        Please enter the ID of a car to see the details
-      </Text>
       {admin && <DisplayReservation bookedCar={bookedCar}/>}
       {!admin && <DisplayBookedCar bookedCar={bookedCar}/>}
     </Flex>
