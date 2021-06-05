@@ -1,12 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCarItem, bookedCar } from '../actions/index';
-import { GridItem, Text, Image, Grid, Box, tokenToCSSVar } from '@chakra-ui/react';
+import { fetchCarItem } from '../actions/index';
+import { GridItem, Text, Image, Grid, Box, Modal, ModalContent } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
-import axios from 'axios';
 
 const CarDetail = () => {
   const dispatch = useDispatch();
@@ -63,8 +62,6 @@ const CarDetail = () => {
   }
 
   return (
-    <>
-    <Text>{message}</Text>
     <Grid templateColumns="repeat(2, 1fr)" >
       <Box>
         <Image
@@ -87,6 +84,7 @@ const CarDetail = () => {
         <Text textAlign="center">Color: {carItem.color}</Text>
         <Text textAlign="center">Transmission: {carItem.transmission}</Text>
         <Text textAlign="center">Seats: {carItem.seats}</Text>
+        <Text>{message}</Text>
         <br />
         <br />
         <form onSubmit={handleSubmit}>
@@ -98,7 +96,6 @@ const CarDetail = () => {
         </form>
       </Box>
     </Grid>
-    </>
   )
 };
 
