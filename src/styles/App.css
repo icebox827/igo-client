@@ -92,12 +92,12 @@ form {
   border: 1px solid black;
   border-radius: 4px;
   margin: 10px;
-  box-shadow: 5px 10px #888888;
+  box-shadow: 5px 10px #888;
 }
 
 .profile {
- margin-left: 20px;
- margin-bottom: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .btn_favorite {
