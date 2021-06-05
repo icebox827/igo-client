@@ -28,7 +28,6 @@ const Login = () => {
     .then(data => {
 
       if (data.token) {
-        console.log(data)
         sessionStorage.setItem('userToken', JSON.stringify(data.token));
         sessionStorage.setItem('username', JSON.stringify(user.username));
         sessionStorage.setItem('admin', JSON.stringify(data.admin));
