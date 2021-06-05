@@ -43,7 +43,17 @@ const Reservation = ({
     <Card style={{ width: '21rem' }} className="bg-dark text-white mt-3" key={cars.user_id}>
       <Card.Img variant="top" src={cars.image_url} />
       <Card.Body>
-        <Card.Title className="make"><Text fontSize="2xl" color="blue.500" mt="2" textAlign="center" fontWeight="bold">{cars.make} {cars.model}</Text></Card.Title>
+        <Card.Title className="make">
+          <Text 
+            fontSize="2xl" 
+            color="blue.500" 
+            mt="2" 
+            textAlign="center" 
+            fontWeight="bold"
+          >
+            {cars.make} {cars.model}
+          </Text>
+        </Card.Title>
         <Card.Subtitle>User: {cars.user_id} Car: {cars.car_id}</Card.Subtitle>
         <Card.Text className="car">
           <Text>year : {cars.year}</Text>

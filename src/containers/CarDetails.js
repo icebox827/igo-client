@@ -84,7 +84,7 @@ const CarDetail = () => {
         <Text textAlign="center">Color: {carItem.color}</Text>
         <Text textAlign="center">Transmission: {carItem.transmission}</Text>
         <Text textAlign="center">Seats: {carItem.seats}</Text>
-        <Text>{message}</Text>
+        <Text textAlign="center" color="teal" fontSize="3xl">{message}</Text>
         <br />
         <br />
         <form onSubmit={handleSubmit}>
