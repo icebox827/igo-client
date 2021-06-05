@@ -44,11 +44,11 @@ const fetchCarItem = (id) => async(dispatch) => {
   }
 };
 
-const fetchBookedcar = (id) => async(dispatch) => {
+const fetchBookedcar = () => async(dispatch) => {
  dispatch({ type: FETCH_BOOKED_CARS_REQUEST });
 
  try {
-  const response = await fetch(`${baseURL}/booked_cars/${id}`);
+  const response = await fetch(`${baseURL}/booked_cars`);
   const data = await response.json();
   dispatch({ type: FETCH_BOOKED_CARS_SUCCESS, payload: data });
  } catch (error) {
@@ -56,17 +56,4 @@ const fetchBookedcar = (id) => async(dispatch) => {
  }
 }
 
-const bookedCar = () => async(dispatch) => {
-  dispatch({ type: BOOKED_REQUEST });
-
-  try {
-    const response = await axios.post(`${baseURL}/booked_cars`, {token})
-    const data = await response.json();
-    console.log('hey')
-    dispatch({ type: BOOKED_SUCCESS, payload: data })
-  } catch (error) {
-    dispatch({ type: BOOKED_FAILURE, payload: error })
-  } 
-}
-
-export { fetchCar, fetchCarItem, fetchBookedcar, bookedCar };
+export { fetchCar, fetchCarItem, fetchBookedcar };
