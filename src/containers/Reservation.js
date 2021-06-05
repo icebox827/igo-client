@@ -23,6 +23,7 @@ const Reservation = () => {
       ...carId,
       [e.target.name]: e.target.value
     })
+    console.log(carId)
   };
 
   const handleSubmit = (e) => {
@@ -87,11 +88,11 @@ const Reservation = () => {
         <form onSubmit={handleSubmit}>
           <label>Enter ID:</label>
           <input 
+            onChange={handleChange}
             type="text" 
             placeholder="Car ID" 
             className="idForm" 
-            name="name"
-            onChange={handleChange}
+            name="id"
           />
           <input type="submit" value="See car" className="btnID"/>
         </form>
