@@ -94,8 +94,8 @@ form {
   box-shadow: 5px 10px #888888;
 }
 
-.image {
-  float: left;
+.profile {
+ margin-left: 20px;
 }
 
 .btn_favorite {
@@ -108,4 +108,5 @@ form {
 .username {
   color: white;
   margin-right: 15px;
+  margin-bottom: 20px;
 }

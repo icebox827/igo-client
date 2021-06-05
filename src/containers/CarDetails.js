@@ -6,6 +6,7 @@ import { GridItem, Text, Image, Grid, Box, } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
+import me from '../assets/me.jpg';
 
 const CarDetail = () => {
   const dispatch = useDispatch();
@@ -103,6 +104,14 @@ const CarDetail = () => {
     <Box>
       <Text textAlign="center" color="blue.500" fontSize="4xl">Book you car with one click</Text>
       <Text textAlign="center" color="teal" fontSize="2xl">and it will be add to your favorite</Text>
+      <Image 
+        src={me} 
+        alt="owner" 
+        className="profile"
+        objectFit="cover" 
+        boxSize="200px"
+        borderRadius="full"
+      />
     </Box>
   </>
   )
