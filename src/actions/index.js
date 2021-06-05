@@ -13,10 +13,6 @@ FETCH_CAR_ITEM_FAILURE,
 FETCH_CAR_ITEM_REQUEST,
 } from './action';
 
-import axios from 'axios';
-
-const token = (JSON.parse(sessionStorage.getItem('token')));
-
 const baseURL = 'https://igo-api.herokuapp.com/api/v1';
 
 const fetchCar = () => async(dispatch) => {
@@ -46,9 +42,16 @@ const fetchCarItem = (id) => async(dispatch) => {
 
 const fetchBookedcar = () => async(dispatch) => {
  dispatch({ type: FETCH_BOOKED_CARS_REQUEST });
+ const userToken = (JSON.parse(sessionStorage.getItem('userToken')));
 
  try {
-  const response = await fetch(`${baseURL}/booked_cars`);
+  const response = await fetch(`${baseURL}/booked_cars`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `Bearer ${userToken}`
+    }
+  });
   const data = await response.json();
   dispatch({ type: FETCH_BOOKED_CARS_SUCCESS, payload: data });
  } catch (error) {
