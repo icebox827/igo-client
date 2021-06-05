@@ -41,7 +41,7 @@ const NavBar = () => {
         </Box>
         <Spacer />
         <Box>
-          {username && <span>{username}</span>}
+          {username && <span className="username">{username}</span>}
           { !username && <>
             <Button colorScheme="teal" mr="4">
             <Link to="/signup">Sign Up</Link>
