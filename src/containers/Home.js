@@ -33,9 +33,11 @@ const Home = () => {
         <Text textAlign="center" color="teal" fontSize="3xl" fontWeight="800">Select your car and add it to your favorite</Text>
         <Text textAlign="center" color="blue.500" fontSize="2xl" fontWeight="600">One click to book a car</Text>
         <Image
-         src=""
+         src={carKey}
          alt="promotion"
          className="promo"
+         boxSize="250px"
+         borderRadius="full"
         />
         <BookRide />
       </Container>
