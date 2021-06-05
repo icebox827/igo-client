@@ -104,10 +104,10 @@ form {
   margin: 0 auto;
 }
 
-.username {
-  /* color: white; */
-  margin-right: 15px;
-  margin-bottom: 20px;
+.login {
+  color: white;
+  margin-right: 50px;
+  margin-top: 20px;
 }
 
 .mojo {
