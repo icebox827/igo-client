@@ -7,6 +7,7 @@ import carshow from '../assets/carshow.jpeg'
 import car from '../assets/car.jpeg'
 import rentacar from '../assets/rentacar.jpg'
 import BookRide from '../components/BookRide';
+import carKey from '../assets/carKey.jpeg';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Home = () => {
