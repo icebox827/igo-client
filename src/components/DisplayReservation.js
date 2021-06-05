@@ -18,16 +18,26 @@ const DisplayReservation = ({bookedCar}) => {
               textAlign="center" 
               fontWeight="bold"
             >
-              User: {cars.user.username} / Car: {cars.car.make}
+              {cars.car.make} {cars.car.model}
             </Text>
           </Card.Title>
           <Card.Subtitle>
-            <Text  textAlign="center" >
-              Submit the ID to visualize the car details
+            <Text  
+              textAlign="center"
+              fontSize="xl" 
+              color="teal" 
+            >
+              Booked by: {cars.user.username}
             </Text>
           </Card.Subtitle>
-          <Card.Text>
-
+          <Card.Text className="car">
+            <Text>Year : {cars.car.year}</Text>
+            <hr/>
+            <Text>Color: {cars.car.color}</Text>
+            <hr/>
+            <Text>Transmission: {cars.car.transmission}</Text>
+            <hr/>
+            <Text>Seats: {cars.car.seats}</Text>
           </Card.Text>
         </Card.Body>
       </Card>
