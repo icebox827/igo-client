@@ -1,24 +1,23 @@
 import * as actions from '../actions/action';
 
-describe('Evaluate carRequest',() => {
-    it('should not return an empty object', () => {
-      const action = actions.FETCH_CAR_REQUEST;
-      expect(action).not.toBe('');
-    });
-    it('Should return car request', () => {
-      const action = actions.FETCH_CARS_REQUEST;
-      expect(action).toBe('FETCH_CARS_REQUEST');
-    });
-    it('Should return car success', () => {
-      const action = actions.FETCH_CARS_SUCCESS;
-      expect(action).toBe('FETCH_CARS_SUCCESS');
-    });
-    it('Should return car failure', () => {
-      const action = actions.FETCH_CARS_FAILURE;
-      expect(action).toBe('FETCH_CARS_FAILURE');
-    });
-  },
-);
+describe('Evaluate carRequest', () => {
+  it('should not return an empty object', () => {
+    const action = actions.FETCH_CAR_REQUEST;
+    expect(action).not.toBe('');
+  });
+  it('Should return car request', () => {
+    const action = actions.FETCH_CARS_REQUEST;
+    expect(action).toBe('FETCH_CARS_REQUEST');
+  });
+  it('Should return car success', () => {
+    const action = actions.FETCH_CARS_SUCCESS;
+    expect(action).toBe('FETCH_CARS_SUCCESS');
+  });
+  it('Should return car failure', () => {
+    const action = actions.FETCH_CARS_FAILURE;
+    expect(action).toBe('FETCH_CARS_FAILURE');
+  });
+});
 
 describe(
   'Evaluate reservationRequest',

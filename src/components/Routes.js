@@ -12,24 +12,21 @@ import CarDetail from '../containers/CarDetails';
 import '../styles/App.css';
 import store from '../store';
 
-const Routes = () => {
-  return (
-    <Provider store={store}>
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/reservation/' component={Reservation} />
-          <Route exact path='/car' component={Cars}  />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/signup' component={Signup} />
-          <Route exact path='/carDetail/:id' component={CarDetail} />
-        </Switch>
-        <Footer />
-      </Router>
-    </Provider>
-  )
-  
-};
+const Routes = () => (
+  <Provider store={store}>
+    <Router>
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/reservation/" component={Reservation} />
+        <Route exact path="/car" component={Cars} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/carDetail/:id" component={CarDetail} />
+      </Switch>
+      <Footer />
+    </Router>
+  </Provider>
+);
 
 export default Routes;

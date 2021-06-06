@@ -1,7 +1,7 @@
 import {
-FETCH_BOOKED_CARS_REQUEST,
-FETCH_BOOKED_CARS_SUCCESS,
-FETCH_BOOKED_CARS_FAILURE,
+  FETCH_BOOKED_CARS_REQUEST,
+  FETCH_BOOKED_CARS_SUCCESS,
+  FETCH_BOOKED_CARS_FAILURE,
 } from '../actions/action';
 
 const INITIAL_STATE = {
@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 };
 
 const bookedCarReducer = (state = INITIAL_STATE, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_BOOKED_CARS_REQUEST:
       return {
         ...state,

@@ -5,6 +5,6 @@ import { Card } from 'react-bootstrap';
 
 describe('Car component', () => {
   it('Should render Card', () => {
-    render(<Card />)
+    render(<Card />);
   });
 });

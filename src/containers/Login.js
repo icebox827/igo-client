@@ -11,46 +11,42 @@ const Login = () => {
   const handleChange = (e) => {
     setUser({
       ...user,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('https://igo-api.herokuapp.com/api/v1/login', 
+    const response = await fetch('https://igo-api.herokuapp.com/api/v1/login',
       {
         headers: { 'Content-Type': 'application/json' },
         method: 'post',
-        body: JSON.stringify(user)
-      }
-    )
-    .then(res => res.json())
-    .then(data => {
+        body: JSON.stringify(user),
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.token) {
+          sessionStorage.setItem('userToken', JSON.stringify(data.token));
+          sessionStorage.setItem('username', JSON.stringify(user.username));
+          sessionStorage.setItem('admin', JSON.stringify(data.admin));
+          history.push('/');
+        }
 
-      if (data.token) {
-        sessionStorage.setItem('userToken', JSON.stringify(data.token));
-        sessionStorage.setItem('username', JSON.stringify(user.username));
-        sessionStorage.setItem('admin', JSON.stringify(data.admin));
-        history.push('/')
-      }
-
-      if (data.error) {
-        setError(data.error)
-      }
-    });
+        if (data.error) {
+          setError(data.error);
+        }
+      });
   };
 
-  const renderUser = () => {
-
-    return (
-      <>
+  const renderUser = () => (
+    <>
       {error && <p>{error}</p>}
 
       <form onSubmit={handleSubmit}>
         <label className="label">Username :</label>
         <input
-          onChange={handleChange} 
-          type="text" 
+          onChange={handleChange}
+          type="text"
           placeholder="Please enter your username"
           className="username"
           name="username"
@@ -58,27 +54,26 @@ const Login = () => {
           required
         />
         <label className="label">Password :</label>
-        <input 
+        <input
           onChange={handleChange}
-          type="password" 
+          type="password"
           placeholder="Please enter your password"
           className="password"
           name="password"
           minLength="6"
-          required 
+          required
         />
         <button type="submit" className="btnLogin">Login</button>
       </form>
-      </>
-    )
-  };
+    </>
+  );
 
   return (
     <Flex wrap="wrap" display="flex" w="100%">
       <Text fontSize="3xl" color="blue.500" mt="4" textAlign="center" fontWeight="bold">Login</Text>
       {renderUser()}
     </Flex>
-  )
-}
+  );
+};
 
 export default Login;

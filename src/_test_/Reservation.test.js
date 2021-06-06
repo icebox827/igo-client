@@ -5,11 +5,11 @@ import { Card } from 'react-bootstrap';
 
 describe('Reservation component', () => {
   it('Should render Card', () => {
-    render(<Card />)
-  })
+    render(<Card />);
+  });
 
   it('Should render Loading Data...', () => {
-    const element = "Loading Data...";
+    const element = 'Loading Data...';
     expect(element).toBe('Loading Data...');
   });
 });

@@ -6,7 +6,7 @@ function Loader() {
     <Center>
       <Spinner thickness="4px" speed="0.65s" emptyColor="gray.200" color="brown.500" size="xxl" />
     </Center>
-  )
+  );
 }
 
 export default Loader;

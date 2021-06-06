@@ -11,12 +11,12 @@ const INITIAL_STATE = {
 };
 
 const carReducer = (state = INITIAL_STATE, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_CARS_REQUEST:
       return {
         ...state,
         loading: true,
-        error: null
+        error: null,
       };
     case FETCH_CARS_SUCCESS:
       return {

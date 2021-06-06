@@ -1,7 +1,7 @@
 import {
-FETCH_CAR_ITEM_SUCCESS,
-FETCH_CAR_ITEM_FAILURE,
-FETCH_CAR_ITEM_REQUEST,
+  FETCH_CAR_ITEM_SUCCESS,
+  FETCH_CAR_ITEM_FAILURE,
+  FETCH_CAR_ITEM_REQUEST,
 } from '../actions/action';
 
 const INITIAL_STATE = {
@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 };
 
 const CarItemReducer = (state = INITIAL_STATE, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_CAR_ITEM_REQUEST:
       return {
         ...state,
@@ -30,7 +30,7 @@ const CarItemReducer = (state = INITIAL_STATE, action) => {
         loading: false,
         error: action.payload,
       };
-    default: 
+    default:
       return state;
   }
 };

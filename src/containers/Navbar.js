@@ -1,4 +1,6 @@
-import { Box, Menu, MenuItem, Text, Flex, Spacer, Heading, Button } from '@chakra-ui/react';
+import {
+  Box, Menu, MenuItem, Text, Flex, Spacer, Heading, Button,
+} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.png';
 
@@ -14,26 +16,26 @@ const NavBar = () => {
         </Box>
         <Box>
           <MenuItem color="white" className="link">
-             <Link to="/">
-               <Text display="block">
-                  Home
+            <Link to="/">
+              <Text display="block">
+                Home
               </Text>
-             </Link>
-          </MenuItem>
-        </Box>
-        <Box>
-          <MenuItem color="white" className="link">
-            <Link to="/car">
-                <Text display="block">
-                  Car
-                </Text>
             </Link>
           </MenuItem>
         </Box>
         <Box>
           <MenuItem color="white" className="link">
-           <Link to="/reservation">
-             <Text display="block">
+            <Link to="/car">
+              <Text display="block">
+                Car
+              </Text>
+            </Link>
+          </MenuItem>
+        </Box>
+        <Box>
+          <MenuItem color="white" className="link">
+            <Link to="/reservation">
+              <Text display="block">
                 Reservation
               </Text>
             </Link>
@@ -42,19 +44,20 @@ const NavBar = () => {
         <Spacer />
         <Box>
           {username && <span className="login">{username}</span>}
-          { !username && <>
+          { !username && (
+          <>
             <Button colorScheme="teal" mr="4">
-            <Link to="/signup">Sign Up</Link>
+              <Link to="/signup">Sign Up</Link>
             </Button>
             <Button colorScheme="teal">
-            <Link to="/login">Log in</Link>
+              <Link to="/login">Log in</Link>
             </Button>
-             </>
-          }
+          </>
+          )}
         </Box>
       </Menu>
     </Flex>
-  )
+  );
 };
 
 export default NavBar;
