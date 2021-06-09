@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
+import { Formik } from 'formik'
 import {
   GridItem, Text, Image, Grid, Box,
 } from '@chakra-ui/react';
@@ -105,13 +105,13 @@ const CarDetail = () => {
           <br />
           <br />
           <Text textAlign="center">
-            <form onSubmit={handleSubmit}>
+            <Formik onSubmit={handleSubmit}>
               <input
                 type="submit"
                 value="Book now"
                 className="btn_favorite"
               />
-            </form>
+            </Formik>
           </Text>
         </Box>
       </Grid>
