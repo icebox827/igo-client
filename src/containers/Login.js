@@ -53,6 +53,7 @@ const Login = () => {
           minLength="3"
           required
         />
+        <br />
         <label className="label">Password :</label>
         <input
           onChange={handleChange}
