@@ -51,6 +51,7 @@ const Signup = () => {
           minLength="3"
           required
         />
+        <br />
         <label className="label">email</label>
         <input
           onChange={handleChange}
@@ -61,6 +62,7 @@ const Signup = () => {
           minLength="3"
           required
         />
+        <br />
         <label className="label">Password</label>
         <input
           onChange={handleChange}
