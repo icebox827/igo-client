@@ -5,7 +5,7 @@ import { Text } from '@chakra-ui/react';
 const DisplayBookedCar = ({ bookedCar }) => {
   const renderBookedCar = () => bookedCar.map((cars) => (
     <>
-      <Card style={{ width: '21rem' }} className="bg-dark text-white mt-3" key={cars.user_id}>
+      <Card style={{ width: '21rem' }} className="bg-dark text-white mt-3" key={cars.id}>
         <Card.Body>
           <Card.Img src={cars.image_url} />
           <Card.Title className="make">
@@ -22,25 +22,20 @@ const DisplayBookedCar = ({ bookedCar }) => {
             </Text>
           </Card.Title>
           <Card.Text className="car">
-            <Text>
-              Year :
-              {cars.year}
-            </Text>
-            <hr />
-            <Text>
-              Color:
-              {cars.color}
-            </Text>
-            <hr />
-            <Text>
-              Transmission:
-              {cars.transmission}
-            </Text>
-            <hr />
-            <Text>
-              Seats:
-              {cars.seats}
-            </Text>
+            Year :
+            {cars.year}
+          </Card.Text>
+          <Card.Text className="car">
+            Color:
+            {cars.color}
+          </Card.Text>
+          <Card.Text className="car">
+            Transmission:
+            {cars.transmission}
+          </Card.Text>
+          <Card.Text className="car">
+            Seats:
+            {cars.seats}
           </Card.Text>
         </Card.Body>
       </Card>
