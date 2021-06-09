@@ -5,8 +5,8 @@ import '../styles/App.css';
 
 const Login = () => {
   const history = useHistory();
-  const [user, setUser] = useState();
-  const [error, setError] = useState();
+  const [user, setUser] = useState('');
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setUser({
