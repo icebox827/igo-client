@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   GridItem, Text, Image, Grid, Box, Center
 } from '@chakra-ui/react';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router';
 import { fetchCarItem } from '../actions/index';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
 import me from '../assets/me.jpg';
 
 const CarDetail = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [message, setMessage] = useState('');
   const { carItem, loading, error } = useSelector((state) => state.carItem);
@@ -36,6 +37,7 @@ const CarDetail = () => {
       const json = await response.json();
       setMessage(json.message);
       displayMessage();
+      history.push('/reservation');
     } catch (err) {
       return err;
     }
