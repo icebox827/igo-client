@@ -25,7 +25,6 @@ const Signup = () => {
       })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.message) {
           history.push('/login');
         }
