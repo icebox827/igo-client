@@ -1,43 +1,37 @@
 import {
-  FETCH_CARS_REQUEST,
-  FETCH_CARS_SUCCESS,
-  FETCH_CARS_FAILURE,
-  FETCH_BOOKED_CARS_REQUEST,
-  FETCH_BOOKED_CARS_SUCCESS,
-  FETCH_BOOKED_CARS_FAILURE,
-  FETCH_CAR_ITEM_SUCCESS,
-  FETCH_CAR_ITEM_FAILURE,
-  FETCH_CAR_ITEM_REQUEST,
+  FETCH_REQUEST,
+  FETCH_SUCCESS,
+  FETCH_FAILURE,
 } from './action';
 
 const baseURL = 'https://igo-api.herokuapp.com/api/v1';
 
 const fetchCar = () => async (dispatch) => {
-  dispatch({ type: FETCH_CARS_REQUEST });
+  dispatch({ type: FETCH_REQUEST });
 
   try {
     const response = await fetch(`${baseURL}/cars`);
     const data = await response.json();
-    dispatch({ type: FETCH_CARS_SUCCESS, payload: data });
+    dispatch({ type: FETCH_SUCCESS, payload: data });
   } catch (error) {
-    dispatch({ type: FETCH_CARS_FAILURE, payload: error });
+    dispatch({ type: FETCH_FAILURE, payload: error });
   }
 };
 
 const fetchCarItem = (id) => async (dispatch) => {
-  dispatch({ type: FETCH_CAR_ITEM_REQUEST });
+  dispatch({ type: FETCH_REQUEST });
 
   try {
     const response = await fetch(`${baseURL}/cars/${id}`);
     const data = await response.json();
-    dispatch({ type: FETCH_CAR_ITEM_SUCCESS, payload: data });
+    dispatch({ type: FETCH_SUCCESS, payload: data });
   } catch (error) {
-    dispatch({ type: FETCH_CAR_ITEM_FAILURE, payload: error });
+    dispatch({ type: FETCH_FAILURE, payload: error });
   }
 };
 
 const fetchBookedcar = () => async (dispatch) => {
-  dispatch({ type: FETCH_BOOKED_CARS_REQUEST });
+  dispatch({ type: FETCH_REQUEST });
   const userToken = (JSON.parse(sessionStorage.getItem('userToken')));
 
   try {
@@ -49,14 +43,10 @@ const fetchBookedcar = () => async (dispatch) => {
       },
     });
     const data = await response.json();
-    dispatch({ type: FETCH_BOOKED_CARS_SUCCESS, payload: data });
+    dispatch({ type: FETCH_SUCCESS, payload: data });
   } catch (error) {
-    dispatch({ type: FETCH_BOOKED_CARS_FAILURE, payload: error });
+    dispatch({ type: FETCH_FAILURE, payload: error });
   }
 };
-
-const userLogin = () => {
-  
-}
 
 export { fetchCar, fetchCarItem, fetchBookedcar };
