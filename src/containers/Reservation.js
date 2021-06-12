@@ -13,7 +13,6 @@ import Error from '../components/Error';
 const Reservation = () => {
   const dispatch = useDispatch();
   const { bookedCar, loading, error } = useSelector((state) => state.bookedCar);
-  useSelector((state) => console.log);
 
   useEffect(() => {
     dispatch(fetchBookedcar());
