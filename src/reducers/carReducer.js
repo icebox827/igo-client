@@ -1,7 +1,7 @@
 import {
-  FETCH_REQUEST,
-  FETCH_SUCCESS,
-  FETCH_FAILURE,
+  FETCH_CAR_REQUEST,
+  FETCH_CAR_SUCCESS,
+  FETCH_CAR_FAILURE,
 } from '../actions/action';
 
 const INITIAL_STATE = {
@@ -12,19 +12,19 @@ const INITIAL_STATE = {
 
 const carReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case FETCH_REQUEST:
+    case FETCH_CAR_REQUEST:
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case FETCH_SUCCESS:
+    case FETCH_CAR_SUCCESS:
       return {
         ...state,
         loading: false,
         cars: action.payload,
       };
-    case FETCH_FAILURE:
+    case FETCH_CAR_FAILURE:
       return {
         ...state,
         loading: false,
