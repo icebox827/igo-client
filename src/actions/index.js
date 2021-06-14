@@ -1,37 +1,43 @@
 import {
-  FETCH_REQUEST,
-  FETCH_SUCCESS,
-  FETCH_FAILURE,
+  FETCH_CAR_REQUEST,
+  FETCH_CAR_SUCCESS,
+  FETCH_CAR_FAILURE,
+  FETCH_CAR_ITEM_REQUEST,
+  FETCH_CAR_ITEM_SUCCESS,
+  FETCH_CAR_ITEM_FAILURE,
+  FETCH_BOOKED_CAR_REQUEST,
+  FETCH_BOOKED_CAR_SUCCESS,
+  FETCH_BOOKED_CAR_FAILURE,
 } from './action';
 
 const baseURL = 'https://igo-api.herokuapp.com/api/v1';
 
 const fetchCar = () => async (dispatch) => {
-  dispatch({ type: FETCH_REQUEST });
+  dispatch({ type: FETCH_CAR_REQUEST });
 
   try {
     const response = await fetch(`${baseURL}/cars`);
     const data = await response.json();
-    dispatch({ type: FETCH_SUCCESS, payload: data });
+    dispatch({ type: FETCH_CAR_SUCCESS, payload: data });
   } catch (error) {
-    dispatch({ type: FETCH_FAILURE, payload: error });
+    dispatch({ type: FETCH_CAR_FAILURE, payload: error });
   }
 };
 
 const fetchCarItem = (id) => async (dispatch) => {
-  dispatch({ type: FETCH_REQUEST });
+  dispatch({ type: FETCH_CAR_ITEM_REQUEST });
 
   try {
     const response = await fetch(`${baseURL}/cars/${id}`);
     const data = await response.json();
-    dispatch({ type: FETCH_SUCCESS, payload: data });
+    dispatch({ type: FETCH_CAR_ITEM_SUCCESS, payload: data });
   } catch (error) {
-    dispatch({ type: FETCH_FAILURE, payload: error });
+    dispatch({ type: FETCH_CAR_ITEM_FAILURE, payload: error });
   }
 };
 
 const fetchBookedcar = () => async (dispatch) => {
-  dispatch({ type: FETCH_REQUEST });
+  dispatch({ type: FETCH_BOOKED_CAR_REQUEST });
   const userToken = (JSON.parse(sessionStorage.getItem('userToken')));
 
   try {
@@ -43,9 +49,9 @@ const fetchBookedcar = () => async (dispatch) => {
       },
     });
     const data = await response.json();
-    dispatch({ type: FETCH_SUCCESS, payload: data });
+    dispatch({ type: FETCH_BOOKED_CAR_SUCCESS, payload: data });
   } catch (error) {
-    dispatch({ type: FETCH_FAILURE, payload: error });
+    dispatch({ type: FETCH_BOOKED_CAR_FAILURE, payload: error });
   }
 };
 
