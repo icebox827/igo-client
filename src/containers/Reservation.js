@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  GridItem, Text, Flex, Box,
-} from '@chakra-ui/react';
+import { GridItem, Flex } from '@chakra-ui/react';
 import { fetchBookedcar } from '../actions/index';
 import DisplayBookedCar from '../components/DisplayBookedCar';
 import DisplayReservation from '../components/DisplayReservation';
@@ -35,8 +32,8 @@ const Reservation = () => {
   const admin = JSON.parse(sessionStorage.getItem('admin'));
   return (
     <Flex wrap="wrap" display="flex" w="100%">
-      {admin && <DisplayReservation bookedCar={bookedCar} />}
-      {!admin && <DisplayBookedCar bookedCar={bookedCar} />}
+      {admin && bookedCar && <DisplayReservation bookedCar={bookedCar} />}
+      {!admin && bookedCar && <DisplayBookedCar bookedCar={bookedCar} />}
     </Flex>
   );
 };
