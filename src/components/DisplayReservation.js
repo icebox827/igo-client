@@ -64,7 +64,7 @@ const DisplayReservation = ({ bookedCar }) => {
 };
 
 DisplayReservation.propTypes = {
-  bookedCar: PropTypes.object
+  bookedCar: PropTypes.array
 }
 
 export default DisplayReservation;
