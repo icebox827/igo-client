@@ -43,7 +43,6 @@ const fetchBookedcar = () => async (dispatch) => {
       },
     });
     const data = await response.json();
-    console.log(data)
     dispatch({ type: FETCH_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: FETCH_FAILURE, payload: error });
