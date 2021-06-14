@@ -13,7 +13,7 @@ const DisplayBookedCar = ({ bookedCar }) => {
       {
         bookedCar.map((cars) => (
             <Card style={{ width: '21rem' }} className="bg-dark text-white mt-3" key={cars.id}>
-              <Card.Body>
+              <Card.Body key={cars.id}>
                 <Card.Img src={cars.image_url} />
                 <Card.Title className="make">
                   <Text

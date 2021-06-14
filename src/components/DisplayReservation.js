@@ -12,8 +12,8 @@ const DisplayReservation = ({ bookedCar }) => {
     >
       {
         bookedCar.map((cars) => (
-        <Card style={{ width: '21rem' }} className="bg-dark text-white mt-3" key={cars.car.user_id}>
-          <Card.Body>
+        <Card style={{ width: '21rem' }} className="bg-dark text-white mt-3" key={cars.car.car_id}>
+          <Card.Body key={cars.car.car_id}>
             <Card.Img src={cars.car.image_url} />
             <Card.Title className="make">
               <Text
