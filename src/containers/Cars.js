@@ -42,25 +42,20 @@ const Cars = () => {
             </Text>
           </Card.Title>
           <Card.Text className="car">
-            <Text>
-              Year :
-              {car.year}
-            </Text>
-            <hr />
-            <Text>
-              Color:
-              {car.color}
-            </Text>
-            <hr />
-            <Text>
-              Transmission:
-              {car.transmission}
-            </Text>
-            <hr />
-            <Text>
-              Seats:
-              {car.seats}
-            </Text>
+            Year :
+            {car.year}
+          </Card.Text>
+          <Card.Text>
+            Color:
+            {car.color}
+          </Card.Text>
+          <Card.Text>
+            Transmission:
+            {car.transmission}
+          </Card.Text>
+          <Card.Text>
+            Seats:
+            {car.seats}
           </Card.Text>
         </Card.Body>
         <a href={`\\carDetail\\${car.id}`} className="btn">Click for details</a>
