@@ -24,7 +24,7 @@ const CarItemReducer = (state = INITIAL_STATE, action) => {
         loading: false,
         carItem: action.payload,
       };
-    case FETCH_CAR_FAILURE:
+    case FETCH_CAR_ITEM_FAILURE:
       return {
         ...state,
         loading: false,
