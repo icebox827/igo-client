@@ -30,6 +30,7 @@ const Login = () => {
           sessionStorage.setItem('username', JSON.stringify(user.username));
           sessionStorage.setItem('admin', JSON.stringify(data.admin));
           history.push('/');
+          window.location.reload(true)
         }
 
         if (data.error) {
